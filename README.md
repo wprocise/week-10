@@ -1,9 +1,10 @@
-# Week 0
+# Week 10
 
-This week is meant to give you a very basic introduction to ... In particular, we will focus on the following:
+This week's lab is meant to introduce you to the idea of Supervised Learning. In particular, we'll cover the following topics:
 
-- XXX
-- XXX
+- Regression vs. Classification
+- Model Evaluation
+- Visualizing Models
 
 ## Setup
 
@@ -16,14 +17,18 @@ This week is meant to give you a very basic introduction to ... In particular, w
 The environment for this week is built with the following environment.yml:
 
 ```yml
-name: coding-exercise
+name: h501-week-10
 dependencies:
   - python=3.11
   - pip
   - pip:
-    - streamlit
+    - ipykernel
     - pandas
     - numpy
+    - seaborn
+    - streamlit
+    - scikit-learn
+    - plotly
 ```
 
 *Note: you are welcome to install more packages in your codespace, but they will not be used by the autograder.*
