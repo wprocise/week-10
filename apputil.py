@@ -8,3 +8,13 @@ import pickle
 # 1) Load the coffee analysis data from a CSV file
 data = pd.read_csv("https://raw.githubusercontent.com/leontoddjohnson/datasets/refs/heads/main/data/coffee_analysis.csv")
 
+# 2) Split the data into training and testing sets
+"""Split the data into training and testing sets with 80:20 ratio.
+    linear regression model predicts 'rating' based on '100g USD' feature.
+"""
+df_train, df_test = train_test_split(data, test_size=0.2)
+features = ['100g_USD']
+X_train = df_train[features]
+y_train = df_train['rating']
+lm = LinearRegression()
+lm.fit(X_train.values, y_train.values)
