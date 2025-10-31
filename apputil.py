@@ -8,7 +8,7 @@ import pickle
 # 1) Load the coffee analysis data from a CSV file
 data = pd.read_csv("https://raw.githubusercontent.com/leontoddjohnson/datasets/refs/heads/main/data/coffee_analysis.csv")
 
-# 2) Split the data into training and testing sets
+# 2)
 """Split the data into training and testing sets with 80:20 ratio.
     linear regression model predicts 'rating' based on '100g USD' feature.
 """
@@ -19,8 +19,7 @@ y_train = df_train['rating']
 lm = LinearRegression()
 lm.fit(X_train.values, y_train.values)
 
-# 3) Saved trained model in this repository as a pickle file
-# 3) Save the trained model in this repository as a pickle file called 'model_1.pickle'
+# 3)
 """Save the trained model in this repository as a pickle file called 'model_1.pickle'."""
 with open('model_1.pickle', 'wb') as f:
     pickle.dump(lm, f)
@@ -33,16 +32,16 @@ with open('model_1.pickle', 'wb') as f:
     Train Decision Tree Regressor Model to predict 'rating'.
     Save trained model as 'model_2.pickle'.
 """
-# 1) Map all categories to a number by creating a dictionary
+# Training Decision Tree Regressor Model
 roast_cat = {cat: idx for idx, cat in enumerate(data['roast'].unique())}
 data['roast_num'] = data['roast'].map(roast_cat)
 
-# 2) Prepare features and target
 features = ['100g_USD', 'roast_num']
 X = data[features]
 y = data['rating']
 
-# 3) Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+
 
 
