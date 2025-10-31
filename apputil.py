@@ -27,8 +27,22 @@ with open('model_1.pickle', 'wb') as f:
 
 # Exercise #2
 # Updating script from exercise #1
-# 1) Encode the categorical 'roast' column into numerical labels
+"""Encode categorical 'roast column into numerical labels.
+    Prepare features and target.
+    Split data into training and testing sets (80:20).
+    Train Decision Tree Regressor Model to predict 'rating'.
+    Save trained model as 'model_2.pickle'.
+"""
+# 1) Map all categories to a number by creating a dictionary
 roast_cat = {cat: idx for idx, cat in enumerate(data['roast'].unique())}
 data['roast_num'] = data['roast'].map(roast_cat)
+
+# 2) Prepare features and target
+features = ['100g_USD', 'roast_num']
+X = data[features]
+y = data['rating']
+
+# 3) Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
