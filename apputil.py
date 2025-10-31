@@ -18,3 +18,10 @@ X_train = df_train[features]
 y_train = df_train['rating']
 lm = LinearRegression()
 lm.fit(X_train.values, y_train.values)
+
+# 3) Saved trained model in this repository as a pickle file
+# 3) Save the trained model in this repository as a pickle file called 'model_1.pickle'
+"""Save the trained model in this repository as a pickle file called 'model_1.pickle'."""
+with open('model_1.pickle', 'wb') as f:
+    pickle.dump(lm, f)
+
