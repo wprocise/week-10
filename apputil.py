@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
+from sklearn.tree import DecisionTreeRegressor
 
 # Exercise #1
 # 1) Load the coffee analysis data from a CSV file
@@ -30,7 +31,6 @@ with open('model_1.pickle', 'wb') as f:
     Prepare features and target.
     Split data into training and testing sets (80:20).
     Train Decision Tree Regressor Model to predict 'rating'.
-    Save trained model as 'model_2.pickle'.
 """
 # Training Decision Tree Regressor Model
 roast_cat = {cat: idx for idx, cat in enumerate(data['roast'].unique())}
@@ -40,7 +40,17 @@ features = ['100g_USD', 'roast_num']
 X = data[features]
 y = data['rating']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+dt = DecisionTreeRegressor(random_state=42)
+dt.fit(X_train, y_train)
+
+"""Save trained model as 'model_2.pickle'."""
+with open('model_2.pickle', 'wb') as f:
+    pickle.dump(dt, f)
+
+
+
 
 
 
