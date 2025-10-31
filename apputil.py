@@ -25,3 +25,10 @@ lm.fit(X_train.values, y_train.values)
 with open('model_1.pickle', 'wb') as f:
     pickle.dump(lm, f)
 
+# Exercise #2
+# Updating script from exercise #1
+# 1) Encode the categorical 'roast' column into numerical labels
+roast_cat = {cat: idx for idx, cat in enumerate(data['roast'].unique())}
+data['roast_num'] = data['roast'].map(roast_cat)
+
+
