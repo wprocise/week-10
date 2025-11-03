@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
+import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 
 # Exercise #1
@@ -48,10 +49,3 @@ dt.fit(X_train, y_train)
 """Save trained model as 'model_2.pickle'."""
 with open('model_2.pickle', 'wb') as f:
     pickle.dump(dt, f)
-
-
-
-
-
-
-
